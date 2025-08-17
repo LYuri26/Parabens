@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title>Feliz Aniversário!</title>
+	<meta charset="UTF-8" />
+	<meta name="description" content="Feliz Aniversário para minha amiga">
+	<meta name="robots" content="index, follow" />
+	<meta name="keywords" content="Aniversário, Feliz, Parabéns">
+	<meta property="og:type" content="Cartão Virtual" />
+	<meta property="og:image" content="favicon.ico" />
+	<meta property="og:description" content="Desejo um Feliz Aniversário!">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="loading.css">
+	<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+	<link rel="stylesheet/less" href="cake.less">
+	<style>
+		/* Slideshow de GIFs de fundo */
+		body {
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+			position: relative;
+			overflow-x: hidden;
+			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+			background-attachment: fixed;
+		}
+
+		/* Camada de slideshow */
+		.bg-slideshow {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		/* Estilo base para cada slide */
+		.bg-slide {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		/* Mobile: Posicionamento e tamanho dos GIFs */
+		.bg-slide:nth-child(1) {
+			background-position: left 10% top 10%;
+			background-size: 80px;
+			background-image: url('gifs/7ff58d0601a065be53690227a380c416.gif');
+		}
+
+		.bg-slide:nth-child(2) {
+			background-position: right 5% center;
+			background-size: 90px;
+			background-image: url('gifs/639f523a4803c6f00f51401b3158d452.gif');
+		}
+
+		.bg-slide:nth-child(3) {
+			background-position: left 15% bottom 20%;
+			background-size: 100px;
+			background-image: url('gifs/8687176_1a01b.gif');
+		}
+
+		.bg-slide:nth-child(4) {
+			background-position: right 10% bottom 10%;
+			background-size: 110px;
+			background-image: url('gifs/b135866d24b0203343d1d48e3e448c2a.gif');
+		}
+
+		.bg-slide:nth-child(5) {
+			background-position: center top;
+			background-size: 200px;
+			background-image: url('gifs/happy-birthday-feliz-aniversario.gif');
+		}
+
+		/* Versão Desktop */
+		@media (min-width: 768px) {
+			.bg-slide:nth-child(1) {
+				background-position: left 10% top 20%;
+				background-size: 150px;
+			}
+
+			.bg-slide:nth-child(2) {
+				background-position: right 5% center;
+				background-size: 180px;
+			}
+
+			.bg-slide:nth-child(3) {
+				background-position: left 15% bottom 30%;
+				background-size: 220px;
+			}
+
+			.bg-slide:nth-child(4) {
+				background-position: right 20% bottom 10%;
+				background-size: 250px;
+			}
+
+			.bg-slide:nth-child(5) {
+				background-position: center top;
+				background-size: 350px;
+			}
+
+			.bg-slide:nth-child(6) {
+				background-position: 70% 80%;
+				background-size: 200px;
+				background-image: url('gifs/PARABENS_2.gif');
+			}
+		}
+
+		/* Animação do slideshow */
+		@keyframes slideShow {
+			0% {
+				opacity: 0;
+			}
+
+			10% {
+				opacity: 1;
+			}
+
+			20% {
+				opacity: 1;
+			}
+
+			30% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 0;
+			}
+		}
+
+		/* Tempos de animação para cada slide */
+		.bg-slide:nth-child(1) {
+			animation: slideShow 30s infinite;
+		}
+
+		.bg-slide:nth-child(2) {
+			animation: slideShow 30s infinite 5s;
+		}
+
+		.bg-slide:nth-child(3) {
+			animation: slideShow 30s infinite 10s;
+		}
+
+		.bg-slide:nth-child(4) {
+			animation: slideShow 30s infinite 15s;
+		}
+
+		.bg-slide:nth-child(5) {
+			animation: slideShow 30s infinite 20s;
+		}
+
+		.bg-slide:nth-child(6) {
+			animation: slideShow 30s infinite 25s;
+		}
+
+		/* Mantém todos os outros estilos existentes */
+		.balloons {
+			position: fixed;
+			z-index: 100;
+			animation: float 15s infinite ease-in-out;
+			font-size: 1.5rem;
+		}
+
+		@media (min-width: 768px) {
+			.balloons {
+				font-size: 2rem;
+			}
+		}
+
+		.container {
+			border-radius: 10px;
+			padding: 15px;
+			margin: 10px auto;
+			margin-bottom: 80px;
+			max-width: 95%;
+		}
+
+		@media (min-width: 768px) {
+			.container {
+				padding: 20px;
+				margin-top: 20px;
+				margin-bottom: 100px;
+				max-width: 90%;
+			}
+		}
+
+		.navbar-fixed-bottom .btn {
+			padding: 6px 10px;
+			font-size: 12px;
+			margin: 2px;
+			white-space: nowrap;
+		}
+
+		@media (min-width: 768px) {
+			.navbar-fixed-bottom .btn {
+				padding: 10px 15px;
+				font-size: 14px;
+				margin: 5px;
+			}
+		}
+
+		.navbar-fixed-bottom {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: 1000;
+			padding: 5px 0;
+		}
+
+		.message {
+			max-height: 50vh;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		.bannar,
+		.balloon-border {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.confetti {
+			width: 6px !important;
+			height: 6px !important;
+		}
+
+		@keyframes float {
+
+			0%,
+			100% {
+				transform: translate(0, 0) rotate(0deg);
+			}
+
+			25% {
+				transform: translate(20px, -15px) rotate(5deg);
+			}
+
+			50% {
+				transform: translate(-15px, 10px) rotate(-5deg);
+			}
+
+			75% {
+				transform: translate(15px, -10px) rotate(3deg);
+			}
+		}
+
+		/* Centraliza apenas o banner */
+		.bannar.img-responsive.bannar-come {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			float: none;
+		}
+
+
+
+		/* Opcional: Garante que o container do banner não tenha outros estilos interferindo */
+		.row .col-xs-12.text-center {
+			text-align: center;
+			padding: 0;
+		}
+
+		/* Ajustes de responsividade para mobile */
+		@media (max-width: 767px) {
+
+			/* Ajuste do container principal */
+			.container {
+				padding: 10px;
+				margin-bottom: 60px;
+			}
+
+			/* Redução do tamanho do banner */
+			.bannar.img-responsive {
+				max-width: 90%;
+				height: auto;
+			}
+
+			/* Ajuste do tamanho dos balões */
+			.balloons h2 {
+				font-size: 1.2rem !important;
+			}
+
+			/* Posicionamento dos balões */
+			#b1 {
+				top: 5% !important;
+				left: 2% !important;
+			}
+
+			#b2 {
+				top: 8% !important;
+				right: 3% !important;
+			}
+
+			#b3 {
+				bottom: 15% !important;
+				left: 5% !important;
+			}
+
+			#b4 {
+				top: 15% !important;
+				right: 8% !important;
+			}
+
+			#b5 {
+				bottom: 10% !important;
+				right: 2% !important;
+			}
+
+			#b6 {
+				top: 20% !important;
+				left: 15% !important;
+			}
+
+			#b7 {
+				bottom: 18% !important;
+				right: 15% !important;
+			}
+
+			#b8 {
+				top: 12% !important;
+				left: 10% !important;
+			}
+
+			/* Mensagem com rolagem melhorada */
+			.message {
+				max-height: 40vh;
+				font-size: 14px;
+				padding: 5px;
+			}
+
+			/* Botões na parte inferior */
+			.navbar-fixed-bottom .btn {
+				padding: 5px 8px;
+				font-size: 10px;
+				margin: 1px;
+			}
+
+			/* Ajuste do bolo */
+			.cake {
+				transform: scale(0.8);
+				margin-top: -20px;
+			}
+
+			/* Bordas de balões */
+			.balloon-border {
+				max-width: 100%;
+				height: auto;
+			}
+
+			/* GIFs de fundo menos intensos */
+			.bg-slide {
+				background-size: 50px !important;
+				opacity: 0.7 !important;
+			}
+
+			/* Lâmpadas menores */
+			.bulb-holder {
+				padding: 0 5px;
+			}
+		}
+
+		/* Ajuste adicional para telas muito pequenas */
+		@media (max-width: 480px) {
+			.message {
+				font-size: 12px;
+			}
+
+			.navbar-fixed-bottom .btn {
+				padding: 3px 5px;
+				font-size: 9px;
+			}
+
+			.balloons h2 {
+				font-size: 1rem !important;
+			}
+		}
+	</style>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</head>
+
+<body>
+	<div class="loading"></div>
+	<audio class="song" controls loop>
+		<source src="hbd.mp3">
+		Seu navegador não suporta o elemento de áudio.
+	</audio>
+
+	<!-- Balões formando "PARABÉNS" -->
+	<div class="balloons text-center" id="b1">
+		<h2 style="color:#F2B300;">P</h2>
+	</div>
+	<div class="balloons text-center" id="b2">
+		<h2 style="color:#0719D4;">A</h2>
+	</div>
+	<div class="balloons text-center" id="b3">
+		<h2 style="color:#D14D39;">R</h2>
+	</div>
+	<div class="balloons text-center" id="b4">
+		<h2 style="color:#8FAD00;">A</h2>
+	</div>
+	<div class="balloons text-center" id="b5">
+		<h2 style="color:#8377E4;">B</h2>
+	</div>
+	<div class="balloons text-center" id="b6">
+		<h2 style="color:#99C96A;">É</h2>
+	</div>
+	<div class="balloons text-center" id="b7">
+		<h2 style="color:#20CFB4;">N</h2>
+	</div>
+	<div class="balloons text-center" id="b8">
+		<h2 style="color:#FF6B6B;">S</h2>
+	</div>
+
+	<img src="Balloon-Border.png" class="balloon-border img-responsive" alt="Borda de balões">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_yellow"></div>
+			</div>
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_red"></div>
+			</div>
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_blue"></div>
+			</div>
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_green"></div>
+			</div>
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_pink"></div>
+			</div>
+			<div class="col-xs-2 bulb-holder">
+				<div class="bulb" id="bulb_orange"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<img src="banner.png" class="bannar img-responsive" alt="Feliz Aniversário">
+			</div>
+		</div>
+
+		<div class="row cake-cover">
+			<div class="col-xs-12 text-center">
+				<div class="cake">
+					<div class="velas">
+						<div class="fuego"></div>
+						<div class="fuego"></div>
+						<div class="fuego"></div>
+						<div class="fuego"></div>
+						<div class="fuego"></div>
+					</div>
+					<div class="cobertura"></div>
+					<div class="bizcocho"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row message">
+			<div class="col-xs-12">
+				<p>Hoje é um dia que brilha tanto quanto a chama da revolução</p>
+				<p>Mas você percebe</p>
+				<p>que mais um ano se passou,</p>
+				<p>e assim como os trabalhadores se erguem,</p>
+				<p>você também avança no seu caminho</p>
+				<p><strong>porém</strong></p>
+				<p>Você sabia..?</p>
+				<p>hoje não é apenas seu aniversário</p>
+				<p>é um chamado para a consciência</p>
+				<p>para construir algo maior, juntos</p>
+				<p>É por isso que</p>
+				<p>além de celebrar sua vida,</p>
+				<p>convidamos você</p>
+				<p>a unir-se à luta dos trabalhadores</p>
+				<p>para um mundo mais justo e solidário</p>
+				<p>Assim como Lenin convocava,</p>
+				<p>cada ação sua conta</p>
+				<p>cada passo contribui para a causa</p>
+				<p>e ainda celebramos sua amizade,</p>
+				<p>seu sorriso e sua presença constante</p>
+				<p>Desejamos a você tudo de melhor</p>
+				<p>Que sua vida seja plena,</p>
+				<p>e seus dias repletos de conquistas</p>
+				<p>Que seus sonhos e ideais floresçam,</p>
+				<p>voando alto como a liberdade dos povos</p>
+				<p>Agora, mais do que nunca,</p>
+				<p>é tempo de agir,</p>
+				<p>de se unir,</p>
+				<p>de transformar esperança em realidade</p>
+				<p>Feliz aniversário, [Nome da Sua Amiga]</p>
+				<p>E lembre-se: a festa da vida é também a festa da justiça</p>
+				<p>Junte-se à causa, ergamos juntos o futuro</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="navbar navbar-fixed-bottom">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<div class="btn-group">
+					<button class="btn btn-primary btn-sm" id="turn_on">Luzes</button>
+					<button class="btn btn-primary btn-sm" id="play">Música</button>
+					<button class="btn btn-primary btn-sm" id="bannar_coming">Decorar</button>
+					<button class="btn btn-primary btn-sm" id="balloons_flying">Balões</button>
+					<button class="btn btn-primary btn-sm" id="cake_fadein">Bolo</button>
+					<button class="btn btn-primary btn-sm" id="light_candle">Velas</button>
+					<button class="btn btn-primary btn-sm" id="wish_message">Parabéns</button>
+					<button class="btn btn-primary btn-sm" id="story">Mensagem</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="effect.js"></script>
+	<script>
+		// Ajuste para dispositivos móveis
+		$(document).ready(function () {
+			// Redimensiona balões para mobile
+			function adjustForMobile() {
+				if ($(window).width() < 768) {
+					// Posicionamento dos balões para mobile
+					$('#b1').css({ top: '5%', left: '2%' });
+					$('#b2').css({ top: '8%', right: '3%' });
+					$('#b3').css({ bottom: '15%', left: '5%' });
+					$('#b4').css({ top: '15%', right: '8%' });
+					$('#b5').css({ bottom: '10%', right: '2%' });
+					$('#b6').css({ top: '20%', left: '15%' });
+					$('#b7').css({ bottom: '18%', right: '15%' });
+					$('#b8').css({ top: '12%', left: '10%' });
+
+					// Ajusta animação de fundo para menos GIFs em mobile
+					$('body').css({
+						'animation': 'none',
+						'background': 'linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))'
+					});
+				}
+			}
+
+			// Executa no carregamento e no redimensionamento
+			adjustForMobile();
+			$(window).resize(adjustForMobile);
+
+			// Efeito de confete otimizado para mobile
+			function createConfetti() {
+				const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+				const confettiCount = $(window).width() < 768 ? 30 : 50;
+
+				for (let i = 0; i < confettiCount; i++) {
+					const confetti = document.createElement('div');
+					confetti.className = 'confetti';
+					confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+					confetti.style.left = Math.random() * window.innerWidth + 'px';
+					confetti.style.top = -10 + 'px';
+					confetti.style.width = (Math.random() * 6 + 3) + 'px';
+					confetti.style.height = (Math.random() * 6 + 3) + 'px';
+					confetti.style.position = 'fixed';
+					confetti.style.zIndex = '9999';
+					document.body.appendChild(confetti);
+
+					animateConfetti(confetti);
+				}
+			}
+
+			function animateConfetti(element) {
+				let pos = -10;
+				let opacity = 1;
+				let rotation = Math.random() * 360;
+				let speed = 1 + Math.random() * 2; // Mais lento em mobile
+				let sway = Math.random() * 3 - 1.5; // Menos oscilação em mobile
+				let swaySpeed = Math.random() * 0.02;
+				let swayPos = 0;
+
+				const fall = setInterval(() => {
+					pos += speed;
+					opacity -= 0.005;
+					rotation += 2;
+					swayPos += swaySpeed;
+
+					element.style.top = pos + 'px';
+					element.style.opacity = opacity;
+					element.style.transform = 'rotate(' + rotation + 'deg)';
+					element.style.left = parseFloat(element.style.left) + Math.sin(swayPos) * sway + 'px';
+
+					if (pos > window.innerHeight || opacity <= 0) {
+						clearInterval(fall);
+						element.remove();
+					}
+				}, 20);
+			}
+
+			// Ativa confete nos botões
+			$('.btn-primary').click(function () {
+				createConfetti();
+			});
+		});
+	</script>
+</body>
+
+</html>
