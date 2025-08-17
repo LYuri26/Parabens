@@ -19,18 +19,42 @@
 	<link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
 	<link rel="stylesheet/less" href="cake.less">
 	<style>
-		/* Slideshow de GIFs de fundo */
+		/* RESET E CONFIGURAÇÕES GERAIS */
+		html,
 		body {
 			margin: 0;
 			padding: 0;
 			min-height: 100vh;
 			position: relative;
 			overflow-x: hidden;
-			background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+			background: black;
 			background-attachment: fixed;
 		}
 
-		/* Camada de slideshow */
+		/* MENSAGEM REVOLUCIONÁRIA */
+		.revolutionary-message p {
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+			will-change: opacity;
+			/* Reduzido de 15px */
+			line-height: 1.3 !important;
+			/* Reduzido de 1.5 */
+		}
+
+		/* LAYOUT COMPACTO */
+		.container {
+			border-radius: 5px;
+			/* Reduzido de 10px */
+			padding: 5px !important;
+			/* Reduzido de 15px/20px */
+			margin: 5px auto !important;
+			/* Reduzido de 10px/20px */
+			margin-bottom: 20px !important;
+			/* Reduzido de 80px/100px */
+			max-width: 98% !important;
+			/* Aumentado de 95% */
+		}
+
+		/* SLIDESHOW DE FUNDO (mantido igual) */
 		.bg-slideshow {
 			position: fixed;
 			top: 0;
@@ -40,7 +64,6 @@
 			z-index: -1;
 		}
 
-		/* Estilo base para cada slide */
 		.bg-slide {
 			position: absolute;
 			top: 0;
@@ -52,72 +75,126 @@
 			transition: opacity 1s ease-in-out;
 		}
 
-		/* Mobile: Posicionamento e tamanho dos GIFs */
-		.bg-slide:nth-child(1) {
-			background-position: left 10% top 10%;
-			background-size: 80px;
-			background-image: url('gifs/7ff58d0601a065be53690227a380c416.gif');
+		/* ELEMENTOS DECORATIVOS COMPACTADOS */
+		.balloons {
+			position: fixed;
+			z-index: 100;
+			animation: float 15s infinite ease-in-out;
+			font-size: 1.2rem !important;
+			/* Reduzido de 1.5rem */
 		}
 
-		.bg-slide:nth-child(2) {
-			background-position: right 5% center;
-			background-size: 90px;
-			background-image: url('gifs/639f523a4803c6f00f51401b3158d452.gif');
+		.bannar,
+		.balloon-border {
+			max-width: 95%;
+			height: auto;
+			margin: 2px 0 !important;
+			/* Adicionado */
 		}
 
-		.bg-slide:nth-child(3) {
-			background-position: left 15% bottom 20%;
-			background-size: 100px;
-			background-image: url('gifs/8687176_1a01b.gif');
+		.cake {
+			max-width: 80%;
 		}
 
-		.bg-slide:nth-child(4) {
-			background-position: right 10% bottom 10%;
-			background-size: 110px;
-			background-image: url('gifs/b135866d24b0203343d1d48e3e448c2a.gif');
+		/* BARRA DE BOTÕES COMPACTA */
+		.navbar-fixed-bottom {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			z-index: 1000;
+			padding: 2px 0 !important;
+			/* Reduzido de 5px */
 		}
 
-		.bg-slide:nth-child(5) {
-			background-position: center top;
-			background-size: 200px;
-			background-image: url('gifs/happy-birthday-feliz-aniversario.gif');
+		.navbar-fixed-bottom .btn {
+			padding: 4px 8px !important;
+			/* Reduzido de 6px 10px */
+			font-size: 11px !important;
+			/* Reduzido de 12px */
+			margin: 1px !important;
+			/* Reduzido de 2px */
 		}
 
-		/* Versão Desktop */
+		/* ÁREA DE MENSAGEM COMPACTA */
+		.message {
+			font-size: 0.9em;
+			/* Reduzido quando possível */
+		}
+
+		/* VERSÃO DESKTOP COMPACTA */
 		@media (min-width: 768px) {
-			.bg-slide:nth-child(1) {
-				background-position: left 10% top 20%;
-				background-size: 150px;
+			.container {
+				padding: 8px !important;
+				/* Reduzido de 20px */
+				margin-bottom: 30px !important;
+				/* Reduzido de 100px */
 			}
 
-			.bg-slide:nth-child(2) {
-				background-position: right 5% center;
-				background-size: 180px;
+			.navbar-fixed-bottom .btn {
+				padding: 6px 10px !important;
+				/* Reduzido de 10px 15px */
+				font-size: 12px !important;
+				/* Reduzido de 14px */
+				margin: 2px !important;
+				/* Reduzido de 5px */
 			}
 
-			.bg-slide:nth-child(3) {
-				background-position: left 15% bottom 30%;
-				background-size: 220px;
-			}
-
-			.bg-slide:nth-child(4) {
-				background-position: right 20% bottom 10%;
-				background-size: 250px;
-			}
-
-			.bg-slide:nth-child(5) {
-				background-position: center top;
-				background-size: 350px;
-			}
-
-			.bg-slide:nth-child(6) {
-				background-position: 70% 80%;
-				background-size: 200px;
-				background-image: url('gifs/PARABENS_2.gif');
+			.balloons {
+				font-size: 1.5rem !important;
+				/* Reduzido de 2rem */
 			}
 		}
 
-		/* Animação do slideshow */
+		/* VERSÃO MOBILE COMPACTA */
+		@media (max-width: 767px) {
+			.container {
+				padding: 3px !important;
+				/* Reduzido de 10px */
+				margin-bottom: 15px !important;
+				/* Reduzido de 60px */
+			}
+
+			.message {
+				font-size: 0.8em;
+				/* Reduzido de 14px */
+			}
+
+			.navbar-fixed-bottom .btn {
+				padding: 3px 5px !important;
+				/* Reduzido de 5px 8px */
+				font-size: 9px !important;
+				/* Reduzido de 10px */
+				margin: 0.5px !important;
+				/* Reduzido de 1px */
+			}
+
+			.balloons h2 {
+				font-size: 0.9rem !important;
+				/* Reduzido de 1.2rem */
+			}
+		}
+
+		/* VERSÃO MOBILE EXTRA COMPACTA */
+		@media (max-width: 480px) {
+			.message {
+				font-size: 0.7em;
+				/* Reduzido de 12px */
+			}
+
+			.navbar-fixed-bottom .btn {
+				padding: 2px 3px !important;
+				/* Reduzido de 3px 5px */
+				font-size: 8px !important;
+				/* Reduzido de 9px */
+			}
+
+			.balloons h2 {
+				font-size: 0.8rem !important;
+				/* Reduzido de 1rem */
+			}
+		}
+
+		/* MANTÉM AS ANIMAÇÕES E DEMAIS ESTILOS ORIGINAIS */
 		@keyframes slideShow {
 			0% {
 				opacity: 0;
@@ -140,7 +217,6 @@
 			}
 		}
 
-		/* Tempos de animação para cada slide */
 		.bg-slide:nth-child(1) {
 			animation: slideShow 30s infinite;
 		}
@@ -165,77 +241,6 @@
 			animation: slideShow 30s infinite 25s;
 		}
 
-		/* Mantém todos os outros estilos existentes */
-		.balloons {
-			position: fixed;
-			z-index: 100;
-			animation: float 15s infinite ease-in-out;
-			font-size: 1.5rem;
-		}
-
-		@media (min-width: 768px) {
-			.balloons {
-				font-size: 2rem;
-			}
-		}
-
-		.container {
-			border-radius: 10px;
-			padding: 15px;
-			margin: 10px auto;
-			margin-bottom: 80px;
-			max-width: 95%;
-		}
-
-		@media (min-width: 768px) {
-			.container {
-				padding: 20px;
-				margin-top: 20px;
-				margin-bottom: 100px;
-				max-width: 90%;
-			}
-		}
-
-		.navbar-fixed-bottom .btn {
-			padding: 6px 10px;
-			font-size: 12px;
-			margin: 2px;
-			white-space: nowrap;
-		}
-
-		@media (min-width: 768px) {
-			.navbar-fixed-bottom .btn {
-				padding: 10px 15px;
-				font-size: 14px;
-				margin: 5px;
-			}
-		}
-
-		.navbar-fixed-bottom {
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			z-index: 1000;
-			padding: 5px 0;
-		}
-
-		.message {
-			max-height: 50vh;
-			overflow-y: auto;
-			-webkit-overflow-scrolling: touch;
-		}
-
-		.bannar,
-		.balloon-border {
-			max-width: 100%;
-			height: auto;
-		}
-
-		.confetti {
-			width: 6px !important;
-			height: 6px !important;
-		}
-
 		@keyframes float {
 
 			0%,
@@ -256,135 +261,28 @@
 			}
 		}
 
-		/* Centraliza apenas o banner */
+		/* POSICIONAMENTO CENTRALIZADO DO BANNER */
 		.bannar.img-responsive.bannar-come {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			margin: 0 !important;
 			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			float: none;
+			max-width: 90%;
+			z-index: 10;
 		}
 
-
-
-		/* Opcional: Garante que o container do banner não tenha outros estilos interferindo */
 		.row .col-xs-12.text-center {
 			text-align: center;
-			padding: 0;
+			padding: 60px;
 		}
 
-		/* Ajustes de responsividade para mobile */
-		@media (max-width: 767px) {
-
-			/* Ajuste do container principal */
-			.container {
-				padding: 10px;
-				margin-bottom: 60px;
-			}
-
-			/* Redução do tamanho do banner */
-			.bannar.img-responsive {
-				max-width: 90%;
-				height: auto;
-			}
-
-			/* Ajuste do tamanho dos balões */
-			.balloons h2 {
-				font-size: 1.2rem !important;
-			}
-
-			/* Posicionamento dos balões */
-			#b1 {
-				top: 5% !important;
-				left: 2% !important;
-			}
-
-			#b2 {
-				top: 8% !important;
-				right: 3% !important;
-			}
-
-			#b3 {
-				bottom: 15% !important;
-				left: 5% !important;
-			}
-
-			#b4 {
-				top: 15% !important;
-				right: 8% !important;
-			}
-
-			#b5 {
-				bottom: 10% !important;
-				right: 2% !important;
-			}
-
-			#b6 {
-				top: 20% !important;
-				left: 15% !important;
-			}
-
-			#b7 {
-				bottom: 18% !important;
-				right: 15% !important;
-			}
-
-			#b8 {
-				top: 12% !important;
-				left: 10% !important;
-			}
-
-			/* Mensagem com rolagem melhorada */
-			.message {
-				max-height: 40vh;
-				font-size: 14px;
-				padding: 5px;
-			}
-
-			/* Botões na parte inferior */
-			.navbar-fixed-bottom .btn {
-				padding: 5px 8px;
-				font-size: 10px;
-				margin: 1px;
-			}
-
-			/* Ajuste do bolo */
-			.cake {
-				transform: scale(0.8);
-				margin-top: -20px;
-			}
-
-			/* Bordas de balões */
-			.balloon-border {
-				max-width: 100%;
-				height: auto;
-			}
-
-			/* GIFs de fundo menos intensos */
-			.bg-slide {
-				background-size: 50px !important;
-				opacity: 0.7 !important;
-			}
-
-			/* Lâmpadas menores */
-			.bulb-holder {
-				padding: 0 5px;
-			}
-		}
-
-		/* Ajuste adicional para telas muito pequenas */
-		@media (max-width: 480px) {
-			.message {
-				font-size: 12px;
-			}
-
-			.navbar-fixed-bottom .btn {
-				padding: 3px 5px;
-				font-size: 9px;
-			}
-
-			.balloons h2 {
-				font-size: 1rem !important;
-			}
+		.confetti {
+			width: 4px !important;
+			/* Reduzido de 6px */
+			height: 4px !important;
+			/* Reduzido de 6px */
 		}
 	</style>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
@@ -471,38 +369,71 @@
 
 		<div class="row message">
 			<div class="col-xs-12">
-				<p>Hoje é um dia que brilha tanto quanto a chama da revolução</p>
-				<p>Mas você percebe</p>
-				<p>que mais um ano se passou,</p>
-				<p>e assim como os trabalhadores se erguem,</p>
-				<p>você também avança no seu caminho</p>
-				<p><strong>porém</strong></p>
-				<p>Você sabia..?</p>
-				<p>hoje não é apenas seu aniversário</p>
-				<p>é um chamado para a consciência</p>
-				<p>para construir algo maior, juntos</p>
-				<p>É por isso que</p>
-				<p>além de celebrar sua vida,</p>
-				<p>convidamos você</p>
-				<p>a unir-se à luta dos trabalhadores</p>
-				<p>para um mundo mais justo e solidário</p>
-				<p>Assim como Lenin convocava,</p>
-				<p>cada ação sua conta</p>
-				<p>cada passo contribui para a causa</p>
-				<p>e ainda celebramos sua amizade,</p>
-				<p>seu sorriso e sua presença constante</p>
-				<p>Desejamos a você tudo de melhor</p>
-				<p>Que sua vida seja plena,</p>
-				<p>e seus dias repletos de conquistas</p>
-				<p>Que seus sonhos e ideais floresçam,</p>
-				<p>voando alto como a liberdade dos povos</p>
-				<p>Agora, mais do que nunca,</p>
-				<p>é tempo de agir,</p>
-				<p>de se unir,</p>
-				<p>de transformar esperança em realidade</p>
-				<p>Feliz aniversário, [Nome da Sua Amiga]</p>
-				<p>E lembre-se: a festa da vida é também a festa da justiça</p>
-				<p>Junte-se à causa, ergamos juntos o futuro</p>
+				<p
+					style="color: #d32f2f; text-align: center; text-transform: uppercase; font-weight: bold; font-size: 24px;">
+					☭ Feliz Aniversário, Camarada! ☭
+				</p>
+				<p style="font-size: 18px; color: #b71c1c; text-align: center; font-weight: bold; font-style: italic;">
+					"Os filósofos apenas interpretaram o mundo de maneiras diferentes; a questão, porém, é
+					transformá-lo." - Karl Marx
+				</p>
+
+				<p style="margin: 15px 0;">Hoje é um dia que brilha com o fogo da <span
+						style="color: #d32f2f; font-weight: bold;">REVOLUÇÃO PROLETÁRIA!</span> ✊</p>
+
+				<p style="margin: 15px 0;">Enquanto Bolsonaro e seus capangas devem apodrecer na cadeia,</p>
+
+				<p style="margin: 15px 0;">você avança como um verdadeiro soldado da classe trabalhadora!</p>
+
+				<p style="text-align: center; font-size: 20px; color: #d32f2f; font-weight: bold; margin: 20px 0;">
+					MAS ATENÇÃO, CAMARADA!
+				</p>
+
+				<p style="margin: 15px 0;">Seu aniversário não é apenas uma data pessoal -</p>
+
+				<p style="margin: 15px 0;">É um <span
+						style="font-weight: bold; text-decoration: underline; color: #d32f2f;">CHAMADO À LUTA</span>
+					contra a burguesia opressora!</p>
+
+				<p style="margin: 15px 0;">Enquanto o capitalismo explora, nós ORGANIZAMOS! <span
+						style="font-size: 20px;">⚒️</span></p>
+
+				<p style="margin: 15px 0;">Enquanto os reacionários oprimem, nós RESISTIMOS! <span
+						style="font-size: 20px; color: red;">☭</span></p>
+
+				<p style="margin: 15px 0; font-weight: bold;">Por isso hoje lhe desejamos:</p>
+
+				<p style="margin: 10px 0;">✅ Mais consciência de classe</p>
+
+				<p style="margin: 10px 0;">✅ Mais organização popular</p>
+
+				<p style="margin: 10px 0;">✅ Mais lutas vitoriosas</p>
+
+				<p style="margin: 10px 0;">✅ Força para derrubar o capital</p>
+
+				<p style="margin: 10px 0;">✅ E que Bolsonaro apodreça na prisão! <span style="font-size: 20px;">✊</span>
+				</p>
+
+				<p
+					style="background-color: #d32f2f; color: white; padding: 15px; text-align: center; margin: 25px 0; border-radius: 5px; font-weight: bold;">
+					TRABALHADORES DO MUNDO, UNI-VOS!
+				</p>
+
+				<p style="text-align: center; font-size: 20px; color: #d32f2f; margin: 15px 0;">
+					Feliz Aniversário Revolucionário!
+				</p>
+
+				<p style="text-align: center; font-weight: bold; margin: 15px 0;">
+					Que este seja o ano da vitória do proletariado!
+				</p>
+
+				<p style="text-align: center; margin: 20px 0 10px 0;">
+					<img src="https://i.imgur.com/9QZQZ9Q.png" alt="URSS" style="width: 80px; height: auto;">
+				</p>
+
+				<p style="font-size: 12px; color: #757575; text-align: center; margin: 5px 0;">
+					*Este aniversário foi aprovado pelo Comitê Central do Partido
+				</p>
 			</div>
 		</div>
 	</div>

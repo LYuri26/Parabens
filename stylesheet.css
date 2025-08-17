@@ -11,105 +11,6 @@ body {
 .container {
   display: none;
 }
-.peach {
-  background-color: #ffdab9;
-}
-.peach-after {
-  -webkit-animation: peach_alive linear 8s infinite;
-  -moz-animation: peach_alive linear 8s infinite;
-  -o-animation: peach_alive linear 8s infinite;
-  -ms-animation: peach_alive linear 8s infinite;
-  animation: peach_alive linear 8s infinite;
-}
-
-@-webkit-keyframes peach_alive {
-  0% {
-    background-color: #ffdab9;
-  }
-  25% {
-    background-color: #ffe4b5;
-  }
-  50% {
-    background-color: #ffdab9;
-  }
-  75% {
-    background-color: #ffefd5;
-  }
-  100% {
-    background-color: #ffdab9;
-  }
-}
-@-moz-keyframes peach_alive {
-  0% {
-    background-color: #ffdab9;
-  }
-  25% {
-    background-color: #ffe4b5;
-  }
-  50% {
-    background-color: #ffdab9;
-  }
-  75% {
-    background-color: #ffefd5;
-  }
-  100% {
-    background-color: #ffdab9;
-  }
-}
-
-@-o-keyframes peach_alive {
-  0% {
-    background-color: #ffdab9;
-  }
-  25% {
-    background-color: #ffe4b5;
-  }
-  50% {
-    background-color: #ffdab9;
-  }
-  75% {
-    background-color: #ffefd5;
-  }
-  100% {
-    background-color: #ffdab9;
-  }
-}
-
-@-ms-keyframes peach_alive {
-  0% {
-    background-color: #ffdab9;
-  }
-  25% {
-    background-color: #ffe4b5;
-  }
-  50% {
-    background-color: #ffdab9;
-  }
-  75% {
-    background-color: #ffefd5;
-  }
-  100% {
-    background-color: #ffdab9;
-  }
-}
-
-@keyframes peach_alive {
-  0% {
-    background-color: #ffdab9;
-  }
-  25% {
-    background-color: #ffe4b5;
-  }
-  50% {
-    background-color: #ffdab9;
-  }
-  75% {
-    background-color: #ffefd5;
-  }
-  100% {
-    background-color: #ffdab9;
-  }
-}
 
 .bulb {
   width: 50px;
@@ -964,79 +865,88 @@ body {
 audio {
   display: none;
 }
-
+/* BANNER COM ANIMAÇÃO ORIGINAL + CENTRALIZADO */
 .bannar {
   max-width: 100%;
-  -webkit-transform: translate(0px, -500px);
-  -moz-transform: translate(0px, -500px);
-  -o-transform: translate(0px, -500px);
-  -ms-transform: translate(0px, -500px);
-  transform: translate(0px, -500px);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-500px);
+  -moz-transform: translateX(-50%) translateY(-500px);
+  -o-transform: translateX(-50%) translateY(-500px);
+  -ms-transform: translateX(-50%) translateY(-500px);
+  transform: translateX(-50%) translateY(-500px);
 }
+
 .bannar-come {
   -webkit-animation: bannar_come linear 6s;
-  -webkit-transform: translate(0px, 0px);
   -moz-animation: bannar_come linear 6s;
-  -moz-transform: translate(0px, 0px);
   -o-animation: bannar_come linear 6s;
-  -o-transform: translate(0px, 0px);
   -ms-animation: bannar_come linear 6s;
-  -ms-transform: translate(0px, 0px);
   animation: bannar_come linear 6s;
-  transform: translate(0px, 0px);
+  -webkit-transform: translateX(-50%) translateY(0px);
+  -moz-transform: translateX(-50%) translateY(0px);
+  -o-transform: translateX(-50%) translateY(0px);
+  -ms-transform: translateX(-50%) translateY(0px);
+  transform: translateX(-50%) translateY(0px);
 }
+
+/* ANIMAÇÕES ORIGINAIS (com centralização adicionada) */
 @-webkit-keyframes bannar_come {
   0% {
-    -webkit-transform: translate(0px, -1000px);
+    -webkit-transform: translateX(-50%) translateY(-1000px);
   }
   33% {
-    -webkit-transform: translate(0px, 0px);
-    -webkit-transform: rotate(10deg);
-    /*-webkit-transform:scale(1.5);*/
+    -webkit-transform: translateX(-50%) translateY(0px) rotate(10deg);
   }
   66% {
-    -webkit-transform: translate(0px, 100px);
-    -webkit-transform: rotate(-10deg);
+    -webkit-transform: translateX(-50%) translateY(100px) rotate(-10deg);
   }
   100% {
-    -webkit-transform: translate(0px, 0px);
+    -webkit-transform: translateX(-50%) translateY(0px);
   }
 }
 @-moz-keyframes bannar_come {
   0% {
-    -moz-transform: translate(0px, -1000px);
+    -moz-transform: translateX(-50%) translateY(-1000px);
   }
   33% {
-    -moz-transform: translate(0px, 0px);
-    -moz-transform: rotate(10deg);
-    /*-webkit-transform:scale(1.5);*/
+    -moz-transform: translateX(-50%) translateY(0px) rotate(10deg);
   }
   66% {
-    -moz-transform: translate(0px, 100px);
-    -moz-transform: rotate(-10deg);
+    -moz-transform: translateX(-50%) translateY(100px) rotate(-10deg);
   }
   100% {
-    -moz-transform: translate(0px, 0px);
+    -moz-transform: translateX(-50%) translateY(0px);
   }
 }
 @-o-keyframes bannar_come {
   0% {
-    -o-transform: translate(0px, -1000px);
+    -o-transform: translateX(-50%) translateY(-1000px);
   }
   33% {
-    -o-transform: translate(0px, 0px);
-    -o-transform: rotate(10deg);
-    /*-webkit-transform:scale(1.5);*/
+    -o-transform: translateX(-50%) translateY(0px) rotate(10deg);
   }
   66% {
-    -o-transform: translate(0px, 100px);
-    -o-transform: rotate(-10deg);
+    -o-transform: translateX(-50%) translateY(100px) rotate(-10deg);
   }
   100% {
-    -o-transform: translate(0px, 0px);
+    -o-transform: translateX(-50%) translateY(0px);
   }
 }
-
+@keyframes bannar_come {
+  0% {
+    transform: translateX(-50%) translateY(-1000px);
+  }
+  33% {
+    transform: translateX(-50%) translateY(0px) rotate(10deg);
+  }
+  66% {
+    transform: translateX(-50%) translateY(100px) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
 .balloons {
   position: fixed;
   bottom: -200px;
@@ -1226,7 +1136,6 @@ audio {
   margin-top: 50px;
 }
 .message {
-  margin-top: 200px;
   display: none;
 }
 .message p {
@@ -1256,56 +1165,6 @@ audio {
   border-color: #fff;
   color: #fff;
   background-color: #466baf;
-}
-
-/*controlling tablet width*/
-/*@media only screen and (max-width: 720px){
-    	.container {
-    		-webkit-transform: scale(0.9);
-    	}
-    }*/
-
-/* Estilos responsivos para o banner centralizado */
-.bannar.img-responsive.bannar-come {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
-  position: relative;
-  left: auto;
-  right: auto;
-  transform: none !important;
-}
-
-/* Remove transformações de animação que podem afetar o posicionamento */
-.bannar-come {
-  -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -o-transform: none !important;
-  transform: none !important;
-}
-
-/* Ajustes para diferentes tamanhos de tela */
-@media (max-width: 767px) {
-  .bannar.img-responsive.bannar-come {
-    width: 90%;
-    margin-top: 20px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .bannar.img-responsive.bannar-come {
-    width: 80%;
-    margin-top: 30px;
-  }
-}
-
-@media (min-width: 992px) {
-  .bannar.img-responsive.bannar-come {
-    width: 70%;
-    margin-top: 40px;
-  }
 }
 
 /* Garante que o container não interfira no alinhamento */
